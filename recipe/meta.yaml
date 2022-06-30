@@ -1,6 +1,6 @@
 {% set name = "readuct" %}
 {% set pkg_name = "scine-" + name %}
-{% set version = "3.0.0" %}
+{% set version = "4.0.0" %}
 
 package:
   name: {{ pkg_name }}
@@ -8,13 +8,13 @@ package:
 
 source:
   - url: https://github.com/qcscine/readuct/archive/refs/tags/{{ version }}.tar.gz
-    sha256: 55ab11c432ff0bae9521c561256db2fe90dfb0aad31d934eefe3874e42749ba3
+    sha256: 05eeb95ed22ca7871be08303d5703b16e7ba6809b751d570ba9d97e544758f3e
   - url: https://github.com/qcscine/development-utils/archive/refs/tags/4.0.0.tar.gz
     sha256: 54002c2082b6bb75672ec66bf9cf3935bbdf6b085ed9b4d7174cbdedb7c2275d
     folder: dev
 
 build:
-  number: 1
+  number: 0
   skip: true  # [win]
 
   run_exports:
