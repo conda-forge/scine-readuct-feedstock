@@ -1,0 +1,15 @@
+macro(import_readuct)
+  # If the target already exists, do nothing
+  if(TARGET Scine::Readuct)
+    message(STATUS "Scine::Readuct present.")
+  else()
+    # Try to find the package locally
+    find_package(ScineReaduct CONFIG REQUIRED)
+    if(TARGET Scine::Readuct)
+      message(STATUS "Scine::Readuct found locally at ${ScineReaduct_DIR}")
+    else()
+      add_library(Scine::Readuct INTERFACE IMPORTED)
+      target_link_libraries(Scine::Readuct INTERFACE readuct)
+    endif()
+  endif()
+endmacro()
