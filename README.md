@@ -79,6 +79,7 @@ Current release info
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-scine--readuct-green.svg)](https://anaconda.org/conda-forge/scine-readuct) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/scine-readuct.svg)](https://anaconda.org/conda-forge/scine-readuct) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/scine-readuct.svg)](https://anaconda.org/conda-forge/scine-readuct) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/scine-readuct.svg)](https://anaconda.org/conda-forge/scine-readuct) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-scine--readuct--python-green.svg)](https://anaconda.org/conda-forge/scine-readuct-python) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/scine-readuct-python.svg)](https://anaconda.org/conda-forge/scine-readuct-python) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/scine-readuct-python.svg)](https://anaconda.org/conda-forge/scine-readuct-python) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/scine-readuct-python.svg)](https://anaconda.org/conda-forge/scine-readuct-python) |
 
 Installing scine-readuct
 ========================
@@ -90,16 +91,16 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `scine-readuct` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `scine-readuct, scine-readuct-python` can be installed with `conda`:
 
 ```
-conda install scine-readuct
+conda install scine-readuct scine-readuct-python
 ```
 
 or with `mamba`:
 
 ```
-mamba install scine-readuct
+mamba install scine-readuct scine-readuct-python
 ```
 
 It is possible to list all of the versions of `scine-readuct` available on your platform with `conda`:

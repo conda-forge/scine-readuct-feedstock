@@ -1,0 +1,63 @@
+diff --git a/src/Readuct/CMakeLists.txt b/src/Readuct/CMakeLists.txt
+index e0b41fc..1795bca 100644
+--- a/src/Readuct/CMakeLists.txt
++++ b/src/Readuct/CMakeLists.txt
+@@ -32,6 +32,10 @@ function(target_set_rpath)
+   endif()
+ endfunction()
+ 
++if(SCINE_SKIP_LIBRARY)
++include(ImportReaduct)
++import_readuct()
++else()
+ # Executable
+ add_executable(ReaductApp ${READUCT_APP_FILES})
+ add_executable(Scine::ReaductApp ALIAS ReaductApp)
+@@ -61,6 +65,7 @@ install(
+   LIBRARY DESTINATION lib
+   ARCHIVE DESTINATION lib
+ )
++endif()
+ 
+ # Tests
+ if(SCINE_BUILD_TESTS)
+@@ -86,6 +91,7 @@ if(SCINE_BUILD_TESTS)
+   )
+ endif()
+ 
++if(NOT SCINE_SKIP_LIBRARY)
+ target_include_directories(ReaductApp PRIVATE
+   ${CMAKE_CURRENT_SOURCE_DIR}/App/
+   ${YAML_CPP_INCLUDE_DIR}
+@@ -115,6 +121,7 @@ scine_install_component_cmake_files(
+   COMPONENT ScineReaduct
+   EXPORT_NAME reaductTargets
+ )
++endif()
+ 
+ # Python bindings
+ if(SCINE_BUILD_PYTHON_BINDINGS)
+@@ -174,19 +181,23 @@ if(SCINE_BUILD_PYTHON_BINDINGS)
+   # Generate generator expressions for each target and figure out filenames
+   # for the python setup file
+   set(readuct_PY_DEPS "")
++  if(NOT SCINE_SKIP_LIBRARY)
+   foreach(target ${_py_targets_to_copy})
+     list(APPEND _py_target_gen_exprs "\$<TARGET_FILE:${target}>")
+     target_lib_filename(${target} _target_filename)
+     string(APPEND readuct_PY_DEPS ", \"${_target_filename}\"")
+   endforeach()
+   message(STATUS "Targets to copy for python bindings: ${_py_targets_to_copy}")
++  endif()
+   unset(_py_targets_to_copy)
+ 
++  if(NOT SCINE_SKIP_LIBRARY)
+   add_custom_command(TARGET Readuct POST_BUILD
+     COMMAND ${CMAKE_COMMAND} -E copy ${_py_target_gen_exprs} ${CMAKE_CURRENT_BINARY_DIR}/scine_readuct
+     COMMENT "Copying required shared libraries into python package directory"
+   )
+   unset(_py_target_gen_exprs)
++  endif()
+   configure_file(
+     ${CMAKE_CURRENT_SOURCE_DIR}/Python/setup.py
+     ${CMAKE_CURRENT_BINARY_DIR}/setup.py
