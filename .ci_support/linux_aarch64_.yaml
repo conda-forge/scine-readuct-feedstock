@@ -1,7 +1,7 @@
 BUILD:
 - aarch64-conda_cos7-linux-gnu
 boost_cpp:
-- 1.74.0
+- 1.78.0
 c_compiler:
 - gcc
 c_compiler_version:
@@ -32,7 +32,6 @@ pybind11_abi:
 - '4'
 python:
 - 3.10.* *_cpython
-- 3.7.* *_cpython
 - 3.8.* *_73_pypy
 - 3.8.* *_cpython
 - 3.9.* *_73_pypy
