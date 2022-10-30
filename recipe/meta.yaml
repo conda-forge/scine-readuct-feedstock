@@ -18,7 +18,7 @@ source:
       - patches/pybind11_pin.patch
 
 build:
-  number: 4
+  number: 5
   skip: true  # [win]
 
 outputs:
