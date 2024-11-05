@@ -1,6 +1,6 @@
 {% set name = "readuct" %}
 {% set pkg_name = "scine-" + name %}
-{% set version = "4.1.0" %}
+{% set version = "5.1.0" %}
 
 package:
   name: {{ pkg_name }}-pkg
@@ -8,7 +8,7 @@ package:
 
 source:
   - url: https://github.com/qcscine/readuct/archive/refs/tags/{{ version }}.tar.gz
-    sha256: 9cec0192a444403d6a8fd096509798c49fbd1eec298ec7194aba915e31f50782
+    sha256: 626422770ee9fa99f802b29dba7601b647eb46ac02dfa1fdf29086bf516f302c
     patches:
       - patches/skip_library_build.patch
   - url: https://github.com/qcscine/development-utils/archive/refs/tags/5.0.1.tar.gz
@@ -18,7 +18,7 @@ source:
       - patches/pybind11_pin.patch
 
 build:
-  number: 5
+  number: 0
   skip: true  # [win]
 
 outputs:
